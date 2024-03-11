@@ -4,6 +4,7 @@
 #include "display.h"
 #include "snake.h"
 #include "food.h"
+#include "score.h"
 #include "gameSetup.h"
 
 char* title[] = {
@@ -62,6 +63,7 @@ void drawGame(Snake* snake){
     drawBorders();
     drawSnake(snake);
     drawFood();
+    displayScore();
     refresh();
 }
 

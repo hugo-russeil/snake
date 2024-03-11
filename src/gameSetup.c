@@ -1,9 +1,11 @@
 #include <curses.h>
+#include <time.h>
 
 #include "gameSetup.h"
 #include "snake.h"
 #include "food.h"
 #include "display.h"
+#include "timer.h"
 
 Snake* snake;
 
@@ -19,6 +21,8 @@ void setupGame(){
 
     keypad(win, true);
     nodelay(win, true); // make getch non-blocking
+
+    setupTimer(&waitTime, 100000000);
     
     spawnFood();
     snake = createSnake();

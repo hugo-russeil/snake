@@ -1,18 +1,19 @@
 #include <curses.h>
 #include <stdlib.h>
-#include <unistd.h>
 
 #include "snake.h"
 #include "food.h"
 #include "gameSetup.h"
 #include "display.h"
+#include "score.h"
+#include "timer.h"
 
 void main() {
-    
+
     setupGame();
 
     while(1){
-
+        
         switch(getch()){
             case KEY_UP:
                 if(snake->next != NULL && snake->dirY == 1) break; // prevent the snake from reversing into itself
@@ -41,19 +42,21 @@ void main() {
 
         if(snake->x == foodX && snake->y == foodY){
             growSnake(snake);
+            incrementScore();
+            setupTimer(&waitTime, calculateWaitTime(score));
             spawnFood();
         }else moveSnake(snake);
 
         if(checkSelfCollision(snake) || checkWallCollision(snake)){
-            usleep(500000); // freeze the game for half a second to give the user time to see the collision
+            setupTimer(&waitTime, 500000000);
+            nanosleep(&waitTime, NULL); // freeze the game for half a second to give the user time to see the collision
             gameOverScreen();
             stopGame();
             return;
         }
 
         drawGame(snake);
-
-        usleep(100000);
+        nanosleep(&waitTime, NULL);
     }
 
     stopGame();
