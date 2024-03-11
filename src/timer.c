@@ -11,7 +11,7 @@ void setupTimer(struct timespec* timer, long nanoseconds){
 }
 
 long calculateWaitTime(int score){
-    long newWaitTime = 100000000 - (score * 2000000);
+    long newWaitTime = 100000000 - (score * 100000);
     if (newWaitTime < 10000) { // minimum wait time of 10,000 nanoseconds
         newWaitTime = 10000;
     }
