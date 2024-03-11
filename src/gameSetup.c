@@ -9,8 +9,12 @@
 
 Snake* snake;
 
-void setupGame(){
+int setupGame(){
     WINDOW *win = initscr();
+    if(win == NULL){
+        fprintf(stderr, "Error initialising ncurses.\n");
+        return 0;
+    }
     curs_set(false); // hide cursor
     start_color();
 
@@ -27,6 +31,7 @@ void setupGame(){
     spawnFood();
     snake = createSnake();
     titleScreen();
+    return 1;
 }
 
 void stopGame(){

@@ -5,7 +5,7 @@
 
 extern Snake* snake;
 
-void setupGame();
+int setupGame();
 void stopGame();
 
 #endif // GAME_SETUP_H

@@ -10,7 +10,7 @@
 
 void main() {
 
-    setupGame();
+    if(setupGame() == 0) return;
 
     while(1){
         
@@ -23,7 +23,7 @@ void main() {
                     break;      // which would result in latency in the resolution of the inputs
                 }
                 snake->dirX = 0;                                   
-                snake->dirY = -1;                                  
+                snake->dirY = -1;                             
                 break;
             case KEY_DOWN:
                 if((snake->next != NULL && snake->dirY == -1) || (snake->dirX == 0 && snake->dirY == 1)){
