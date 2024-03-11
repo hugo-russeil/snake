@@ -49,6 +49,9 @@ void main() {
                 snake->dirX = 1;
                 snake->dirY = 0;
                 break;
+            case ' ':
+                while(getch() != ' ');
+                break;
             case 'q':
                 stopGame();
                 return;
