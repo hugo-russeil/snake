@@ -36,7 +36,9 @@ Please note that this project is designed for Ubuntu and may not run on certain 
 
 ## Usage
 
-Use the arrow keys to navigate the snake: up, down, left, and right. Press 'q' to quit the game.
+Use the arrow keys to navigate the snake: up, down, left, and right. <br/>
+Use the spacebar to pause the game. <br/>
+Press 'q' to quit the game.
 
 ## License
 
