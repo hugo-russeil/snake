@@ -7,8 +7,10 @@ int foodX;
 int foodY;
 
 void spawnFood(){
-    foodX = ((rand() % ((COLS - 2) / 2)) * 2); // divide then multiply by 2 to ensure the food is spawned on an even column
-    foodY = ((rand() % ((LINES - 2) / 2) + 1) * 2); // -2 to prevent the food from being spawned on the border,
+    do{
+        foodX = ((rand() % (COLS / 2)) * 2); // divide then multiply by 2 to ensure the food is spawned on an even column
+        foodY = ((rand() % (LINES/ 2)) * 2);
+    } while(foodX <= 0 || foodY <= 0 || foodX >= COLS - 2 || foodY >= LINES - 1);
 }                                               
 
 void drawFood(){
