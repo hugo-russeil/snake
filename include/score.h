@@ -3,7 +3,6 @@
 
 extern int score;
 
-void displayScore();
 void incrementScore();
 
 #endif // SCORE_H

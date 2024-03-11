@@ -63,7 +63,6 @@ void drawGame(Snake* snake){
     drawBorders();
     drawSnake(snake);
     drawFood();
-    displayScore();
     refresh();
 }
 
@@ -74,6 +73,9 @@ void gameOverScreen(){
         offset = (COLS - strlen(gameOver[i])) / 2;
         mvprintw(i + 5, offset, "%s", gameOver[i]);
     }
+
+    offset = (COLS - strlen("Eaten food:  xx")) / 2;
+    mvprintw(15, offset, "Eaten food: %d", score);
 
     offset = (COLS - strlen("Press 'q' to quit")) / 2;
     mvprintw(20, offset, "Press 'q' to quit");
