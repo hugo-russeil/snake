@@ -10,6 +10,7 @@ OBJECTS = $(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 $(OBJ_DIR)/snake: $(OBJECTS)
 	$(CC) $(OBJECTS) -o $@ $(LDFLAGS)
 	rm -f $(OBJECTS)
+	chmod +x $@
 
 $(OBJECTS): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
